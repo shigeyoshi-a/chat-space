@@ -1,14 +1,49 @@
 .chat-side {
   height: 100vh;
   width: 300px;
-  background-color: #253141;
   float: left;
-  .chat-header {
+  .side-header {
+    background-color: #253141;
     height: 100px;
+    padding: 0 20px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    &__box {
+      width: 100%;
+      height: 20px;
+      font-weight: bold ;
+      display: flex;
+      justify-content: space-between;
+      &__menu {
+        display: flex;
+        ls {
+          margin-left: 5px;
+          a {
+            color: white;
+          }
+        }
+      }
+    }
   }
 }
 
 .groups {
   background-color: #2f3e51;
   height: calc(100vh - 100px);
+  padding: 20px;
+  .group {
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    &__groupname {
+      font-size: 15px;
+    }
+    &__message {
+      font-size: 11px;
+      margin-top: 5px;
+    }
+  }
 }
