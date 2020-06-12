@@ -2,30 +2,25 @@
   .main-header
     .main-header__left-box
       %h2.main-header__left-box__current-group
-        test
+        = @group.name
       %ul.main-header__left-box__memder-list
         Member :
         %li.main-header__left-box__memder-list__memder
-          xxx
-    = link_to "#", class:"edit-btn" do
+          - @group.users.each do |user|
+            = user.name
+    = link_to edit_group_path(@group.id) , class:"edit-btn" do
       .edit-btn
         Edit
 
   .messages
-    .message
-      .message__upper-info
-        %p.message__upper-info__user
-          shige
-        %p.message__upper-info__date
-          2020/01/01
-      %p.message__text
-        昔々、あるところに・・・
+    = render @messages
 
   .form
-    %form
-      .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon("fas", "image")
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn", value: "Send"}
+    = form_for [@group, @message] do |f|
+      %form
+        .input-box
+          = f.text_field :content, class: "input-box__text", placeholder: "type a message"
+          = f.label :image, class: "input-box__image" do
+            = icon("fas", "image")
+            = f.file_field :image, class: "input-box__image__file"
+        = f.submit "Send", class: "submit-btn"
