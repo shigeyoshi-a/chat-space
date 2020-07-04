@@ -8,7 +8,7 @@ $(function(){
             <div class="message__upper-info__user">
               ${message.user_name}
             </div>
-            <div "message__upper-info__date">
+            <div class="message__upper-info__date">
               ${message.created_at}
             </div>
           </div>
@@ -27,7 +27,7 @@ $(function(){
             <div class="message__upper-info__user">
               ${message.user_name}
             </div>
-            <div "message__upper-info__date">
+            <div class="message__upper-info__date">
               ${message.created_at}
             </div>
           </div>
@@ -62,7 +62,6 @@ $('#new_message').on('submit', function(e){
     })
     .fail(function() {
       alert('メッセージが送信できませんでした・・・');
-      $('.submit-btn').prop('disabled', false);
     })
   })
 
